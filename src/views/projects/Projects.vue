@@ -53,6 +53,14 @@ async function onSave (project: Project) {
 </script>
 <template>
     <v-row justify="start">
+        <v-col cols="3" class="justify-center">
+            <v-card @click="add" class="bg-background pa-4 new-project-style d-flex align-center justify-center"
+                height="200">
+                <v-card-title>
+                    New Project
+                </v-card-title>
+            </v-card>
+        </v-col>
         <v-col v-for="project in projects" :key="project.id" cols="3">
             <v-card @click="setProject(project)" height="200" class="pa-4">
                 <v-card-title class="d-flex justify-space-between align-center">
@@ -64,14 +72,6 @@ async function onSave (project: Project) {
                     <v-progress-circular size="90" :width="15" :model-value="getServicesLimit(project)"
                         color="secondary"></v-progress-circular>
                 </v-card-text>
-            </v-card>
-        </v-col>
-        <v-col cols="3" class="justify-center">
-            <v-card @click="add" class="bg-background pa-4 new-project-style d-flex align-center justify-center"
-                height="200">
-                <v-card-title>
-                    New Project
-                </v-card-title>
             </v-card>
         </v-col>
     </v-row>

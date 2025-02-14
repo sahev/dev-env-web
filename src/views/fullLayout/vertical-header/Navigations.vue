@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import router from '@/plugins/router';
 import { projectService } from '@/services';
-import { useProjectStore } from '@/stores/project';
-import { storeToRefs } from 'pinia';
 import { computed, onMounted, ref, watch } from 'vue';
-
-const projectStore = useProjectStore()
+import { useRoute } from 'vue-router';
 
 const project = ref()
 
-const isProjectRoute = ref(router.currentRoute.value.path.includes('info'))
+const route = useRoute()
+
+const isProjectRoute = ref(route.path.includes('info'))
 
 const search = ref("")
 
@@ -20,39 +18,32 @@ const filteredItems = computed(() => {
 })
 
 function selectItem (item) {
-    projectStore.setProject(item)
     window.location.href = `/project/${item.id}/info`
-}
-
-function createNewProject () {
-    console.log("Criar novo projeto");
 }
 
 const projects = ref([])
 
 async function getProjects () {
-    if (!router.currentRoute.value.params.id) return
-
     const projectsResponse = await projectService.getAll()
     projects.value = projectsResponse.items
+    setProject()
 }
 
 function setProject() {
-    const proj = projects.value.filter(x => x.id == router.currentRoute.value.params.id)[0]
-
+    const proj = projects.value.filter(x => x.id == route.params.id)[0]
     project.value = proj
 }
 
 watch(
-    () => router.currentRoute.value.name,
+    () => route.name,
     (newParam) => {
-        isProjectRoute.value = router.currentRoute.value.path.includes('/project/')
+        isProjectRoute.value = route.path.includes('/project/')
         setProject()
     }
 );
 
 onMounted(async () => {
-    await getProjects()
+    // getProjects()
     setProject()
 })
 
@@ -64,7 +55,7 @@ onMounted(async () => {
 
     <v-menu :close-on-content-click="false">
         <template v-slot:activator="{ props }">
-            <v-btn v-if="isProjectRoute" variant="text" color="primary" v-bind="props"
+            <v-btn v-if="isProjectRoute" variant="text" color="primary" v-bind="props" @click="getProjects()"
                 :append-icon="'mdi-chevron-down'">
                 {{ project?.name }}
             </v-btn>
@@ -77,13 +68,6 @@ onMounted(async () => {
             <v-list-item density="compact" nav v-for="(item, index) in filteredItems" :key="index" :value="item"
                 @click="selectItem(item)">
                 <v-list-item-title>{{ item.name }}</v-list-item-title>
-            </v-list-item>
-
-            <v-divider></v-divider>
-            <v-list-item density="compact" nav @click="createNewProject">
-                <v-list-item-title>
-                    <v-icon>mdi-plus</v-icon> {{ $t('project.createNew') }}
-                </v-list-item-title>
             </v-list-item>
         </v-list>
     </v-menu>

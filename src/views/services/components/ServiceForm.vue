@@ -40,7 +40,7 @@ const formData = ref<Service>({
     updatedAt: props.service?.updatedAt || null,
     updatedBy: props.service?.updatedBy || null,
     serviceType: props.service?.serviceType || null,
-    storageSize: props.service?.storageSize || "0.1Gi",
+    storageSize: props.service?.storageSize || "1Gi",
     containerStatusType: props.service?.containerStatusType || null,
     userId: props.service?.userId || null,
     projectId: props.service?.projectId || null,

@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 export const useProjectStore = defineStore('projectStore', {
   state: () => ({
     project: {},
+    id: null
   }),
   actions: {
     fetchProject () {
@@ -10,6 +11,7 @@ export const useProjectStore = defineStore('projectStore', {
     },
     setProject (project) {
       this.project = project
+      this.id = project.id
     }
   }
 });
