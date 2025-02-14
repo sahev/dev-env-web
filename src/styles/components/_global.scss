@@ -1,0 +1,16 @@
+.v-btn {
+  text-transform: none !important;
+}
+
+.only-border {
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(var(--v-border-color), var(--v-border-opacity));
+  box-shadow: none;
+}
+
+.border-none{
+  background-color: transparent;
+  box-shadow: none;
+}

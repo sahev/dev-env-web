@@ -1,0 +1,28 @@
+@use 'sass:math' as *;
+@use 'sass:map' as *;
+@use 'sass:meta' as *;
+
+// Custom Variables
+// colors
+$white: #fff !default;
+$grey: #a8a8a8 !default;
+
+// cards
+$card-title-size: 18px !default;
+
+$font-family: 'Inter', sans-serif;
+$border-radius-root: 7px;
+$btn-font-weight: 400 !default;
+$btn-letter-spacing: 0 !default;
+
+// Global Shadow
+$box-shadow: rgba(145 158 171 / 30%) 0px 0px 2px 0px, rgba(145 158 171 / 12%) 0px 12px 24px -4px;
+
+// Global Radius as per breakeven point
+
+@forward 'vuetify/settings' with (
+    $color-pack: false !default,
+    $font-size-root: 1rem,
+    $border-radius-root: $border-radius-root,
+    $body-font-family: $font-family
+)
