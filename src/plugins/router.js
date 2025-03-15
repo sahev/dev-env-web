@@ -45,6 +45,11 @@ const routes = [
             component: () => import('@/views/services/n8n/N8N.vue'),
           },
           {
+            name: 'MessageQueues',
+            path: 'message-queue',
+            component: () => import('@/views/services/messageQueue/MessageQueue.vue'),
+          },
+          {
             name: 'ProjectSettings',
             path: 'settings',
             component: () => import('@/views/project/components/Settings.vue'),

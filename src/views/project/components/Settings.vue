@@ -2,11 +2,13 @@
 import { onMounted, ref } from 'vue';
 import General from './General.vue';
 import { projectService } from '@/services';
-import router from '@/plugins/router';
+import { useRouter } from 'vue-router';
 import Compute from './Compute.vue';
 import Delete from './Delete.vue';
 
 const tab = ref('general')
+
+const router = useRouter()
 
 const tabWindows = ref([
     {
@@ -24,7 +26,7 @@ const tabWindows = ref([
 const project = ref()
 
 async function getProject () {
-    project.value = await projectService.get(router.currentRoute.value.params.id)
+    project.value = await projectService.get(router.currentRoute.value.params.id.toString())
 }
 
 onMounted(() => {
@@ -72,8 +74,8 @@ const snackBarText = ref("Done")
                             </v-card-title>
                             <v-skeleton-loader :loading="!project" type="heading, text, actions">
                                 <v-card-text>
-                                    <component v-if="project" :is="window.component" :project="project"
-                                        @onSave="onSave" @onDelete="onDelete">
+                                    <component v-if="project" :is="window.component" :project="project" @onSave="onSave"
+                                        @onDelete="onDelete">
                                     </component>
                                 </v-card-text>
                             </v-skeleton-loader>

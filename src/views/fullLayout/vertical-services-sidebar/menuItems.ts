@@ -38,10 +38,7 @@ const menuItems: menu[] = [
     {
         title: 'menu.messageQueues',
         icon: 'mdi-message-text',
-        to: '/settings',
-        disabled: true,
-        chip: 'generic.soon',
-        chipBgColor: 'success',
+        to: 'message-queue'
     },
     // {
     // title: 'home.essentials',

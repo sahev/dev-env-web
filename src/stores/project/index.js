@@ -2,8 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useProjectStore = defineStore('projectStore', {
   state: () => ({
-    project: {},
-    id: null
+    project: {}
   }),
   actions: {
     fetchProject () {
@@ -11,7 +10,13 @@ export const useProjectStore = defineStore('projectStore', {
     },
     setProject (project) {
       this.project = project
-      this.id = project.id
     }
-  }
+  }, persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: localStorage,
+      },
+    ],
+  },
 });

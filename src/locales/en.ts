@@ -17,6 +17,7 @@ export default {
     save: "Save",
     cancel: "Cancel",
     newDatabase: "New database",
+    newMessageQueue: "New Message Queue",
     delete: "Delete Service"
   },
   service: {
@@ -67,7 +68,17 @@ export default {
         name: "Name",
         serviceType: "Service Type",
         storageSize: "Storage Size",
-        createdAt: "Created",
+        createdAt: "Created At",
+        createdBy: "Creator"
+      }
+    },
+    messageQueues: {
+      title: "Message Queues",
+      table: {
+        name: "Name",
+        serviceType: "Service Type",
+        storageSize: "Storage Size",
+        createdAt: "Created At",
         createdBy: "Creator"
       }
     }

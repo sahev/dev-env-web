@@ -1,4 +1,3 @@
-import router from '@/plugins/router';
 import envs from './envs';
 
 export const fetchWrapper = {

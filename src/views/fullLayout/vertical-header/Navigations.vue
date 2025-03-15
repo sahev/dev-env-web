@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { projectService } from '@/services';
+import { useProjectStore } from '@/stores/project';
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -7,7 +8,9 @@ const project = ref()
 
 const route = useRoute()
 
-const isProjectRoute = ref(route.path.includes('info'))
+const isProjectRoute = ref(route.path.includes('/project/'))
+
+const projectStore = useProjectStore()
 
 const search = ref("")
 
@@ -18,6 +21,7 @@ const filteredItems = computed(() => {
 })
 
 function selectItem (item) {
+    projectStore.project = item
     window.location.href = `/project/${item.id}/info`
 }
 
@@ -49,15 +53,11 @@ onMounted(async () => {
 
 </script>
 <template>
-    <router-link to="/projects">
-        <v-btn variant="text" color="primary" :prepend-icon="'mdi-folder'">{{ $t('menu.projects') }}</v-btn>
-    </router-link>
-
     <v-menu :close-on-content-click="false">
         <template v-slot:activator="{ props }">
             <v-btn v-if="isProjectRoute" variant="text" color="primary" v-bind="props" @click="getProjects()"
                 :append-icon="'mdi-chevron-down'">
-                {{ project?.name }}
+                {{ projectStore.project.name }}
             </v-btn>
         </template>
 

@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import router from '@/plugins/router';
+import {useRouter} from 'vue-router';
 import { projectService } from '@/services';
 import { useProjectStore } from '@/stores/project';
 import { onMounted, ref } from 'vue';
 import ProjectForm from './components/ProjectForm.vue';
 import { Project } from '@/models/ProjectModel';
 import { getRandomName } from '@/utils/global';
+
+const router = useRouter()
 
 const projects = ref([])
 
@@ -17,6 +19,7 @@ async function getProjects () {
 const projectStore = useProjectStore()
 
 function setProject (item) {
+    projectStore.project = item
     router.push(`/project/${item.id}/info`)
 }
 

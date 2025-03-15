@@ -1,4 +1,6 @@
 export enum EServiceType {
     Postgres,
-    Redis
+    Redis,
+    RabbitMq,
+    Kafka
 }

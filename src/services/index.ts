@@ -5,7 +5,7 @@ import { ServiceService } from "./components/service";
 const baseUrl = envs.api_url
 
 const projectService = new ProjectService(`${baseUrl}/project`);
-const serviceService = new ServiceService(`${baseUrl}/services`);
+const serviceService = new ServiceService(`${baseUrl}/kubernetesservice`);
 
 export {
     projectService,

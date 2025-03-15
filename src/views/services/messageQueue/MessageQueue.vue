@@ -25,17 +25,17 @@ onMounted(() => {
 })
 
 const filteredServices = computed(() => {
-    const databaseServices = [EServiceType.Postgres, EServiceType.Redis]
+    const databaseServices = [EServiceType.Kafka, EServiceType.RabbitMq]
 
     return project.value?.services?.filter(x => databaseServices.includes(x.serviceType))
 })
 
 const headers = computed(() => [
-    { title: "project.database.table.name", value: 'name', sortable: true },
-    { title: "project.database.table.serviceType", value: 'serviceType', sortable: true },
-    { title: "project.database.table.storageSize", value: 'storageSize', sortable: true },
-    { title: "project.database.table.createdAt", value: 'createdAt', sortable: true },
-    { title: "project.database.table.createdBy", value: 'createdBy' },
+    { title: "project.messageQueues.table.name", value: 'name', sortable: true },
+    { title: "project.messageQueues.table.serviceType", value: 'serviceType', sortable: true },
+    { title: "project.messageQueues.table.storageSize", value: 'storageSize', sortable: true },
+    { title: "project.messageQueues.table.createdAt", value: 'createdAt', sortable: true },
+    { title: "project.messageQueues.table.createdBy", value: 'createdBy' },
     { value: "actions" }
 ]);
 
@@ -78,13 +78,13 @@ const snackBarText = ref("Done")
 
 const serviceTypes: ServiceType[] = [
     {
-        serviceType: EServiceType.Postgres,
-        src: 'https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/postgresql-512.png',
+        serviceType: EServiceType.RabbitMq,
+        src: 'https://static-00.iconduck.com/assets.00/rabbitmq-icon-242x256-0y9dqnak.png',
 
     },
     {
-        serviceType: EServiceType.Redis,
-        src: 'https://cdn4.iconfinder.com/data/icons/redis-2/1451/Untitled-2-512.png',
+        serviceType: EServiceType.Kafka,
+        src: 'https://cdn1.iconfinder.com/data/icons/logo-filled/128/Kafka-256.png',
     },
 ]
 
@@ -126,9 +126,9 @@ function newDatabase () {
 <template>
     <v-card class="mb-2 border-none text-lg-h5 font-weight-bold mx-auto" max-width="900">
         <span class="text-lg-h5 font-weight-bold">
-            {{ $t('project.database.title') }}
+            {{ $t('project.messageQueues.title') }}
         </span>
-        <v-btn class="float-right" color="primary" @click="newDatabase" :text="$t('button.newDatabase')"></v-btn>
+        <v-btn class="float-right" color="primary" @click="newDatabase" :text="$t('button.newMessageQueue')"></v-btn>
     </v-card>
     <v-card class="only-border mx-auto" max-width="900">
 

@@ -77,7 +77,9 @@ const formattedStorageSize = computed(() => {
                 <v-btn-toggle v-if="!formData.id" v-model="formData.serviceType" mandatory color="info" divided class="d-flex gap-2">
                     <v-btn v-for="serv in serviceTypes" :key="serv.serviceType" :value="serv.serviceType"
                         class="only-border d-flex justify-center flex-column align-center pa-5" rounded width="200">
-                        <v-icon :icon="serv.icon"></v-icon>
+                        <v-icon v-if="serv.icon" :icon="serv.icon"></v-icon>
+                        <v-img v-if="serv.src" :src="serv.src" alt="Ícone" width="24" height="24"></v-img>
+
                         <div class="text-h5 text-medium-emphasis ps-2">
                             {{ EServiceType[serv.serviceType] }}
                         </div>
