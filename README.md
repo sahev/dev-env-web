@@ -1,6 +1,6 @@
 # dev-env-web
 
-Web interface for provisioning and managing development environments with services such as **RabbitMQ**, **PostgreSQL**, and **Kafka**.
+Web interface for provisioning and managing development environments with services such as **RabbitMQ**, **PostgreSQL**, **Kafka**, and **Redis**.
 
 > ⚠️ **This project depends on the API available at [sahev/dev-env-api](https://github.com/sahev/dev-env-api).**  
 > Make sure it is running for the interface to work properly.
@@ -14,6 +14,7 @@ This project provides a frontend interface to simplify the creation, visualizati
 - 🐘 **PostgreSQL**
 - 🐇 **RabbitMQ**
 - 🔄 **Apache Kafka** 
+- 🧠 **Redis**
 
 The goal is to allow developers to create temporary and isolated environments through a graphical interface, with automatic resource provisioning using **Docker** and **Kubernetes**.
 
