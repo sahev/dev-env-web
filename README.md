@@ -1,25 +1,25 @@
 # dev-env-web
 
-Interface web para provisionamento e gerenciamento de ambientes de desenvolvimento com serviços como **RabbitMQ**, **PostgreSQL** e **Kafka**.
+Web interface for provisioning and managing development environments with services such as **RabbitMQ**, **PostgreSQL**, and **Kafka**.
 
-> ⚠️ **Este projeto depende da API disponível em [sahev/dev-env-api](https://github.com/sahev/dev-env-api).**  
-> Certifique-se de que ela esteja em execução para que a interface funcione corretamente.
+> ⚠️ **This project depends on the API available at [sahev/dev-env-api](https://github.com/sahev/dev-env-api).**  
+> Make sure it is running for the interface to work properly.
 
 ---
 
-## 📋 Descrição
+## 📋 Description
 
-Este projeto fornece uma interface frontend para facilitar a criação, visualização e gerenciamento de ambientes de desenvolvimento locais ou isolados, com suporte a ferramentas essenciais como:
+This project provides a frontend interface to simplify the creation, visualization, and management of local or isolated development environments, with support for essential tools such as:
 
 - 🐘 **PostgreSQL**
 - 🐇 **RabbitMQ**
 - 🔄 **Apache Kafka** 
 
-A proposta é permitir que desenvolvedores criem ambientes temporários e isolados via interface gráfica, com provisionamento automático de recursos usando **Docker** e **Kubernetes**.
+The goal is to allow developers to create temporary and isolated environments through a graphical interface, with automatic resource provisioning using **Docker** and **Kubernetes**.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies Used
 
 - [Vue.js](https://vuejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -27,20 +27,20 @@ A proposta é permitir que desenvolvedores criem ambientes temporários e isolad
 
 ---
 
-## ⚙️ Pré-requisitos
+## ⚙️ Prerequisites
 
-Antes de iniciar o frontend, você precisará ter:
+Before running the frontend, you will need:
 
-- Node.js e npm instalados
-- A API [`dev-env-api`](https://github.com/sahev/dev-env-api) rodando localmente
-- **Docker** instalado e em execução
-- **Kubernetes** configurado (Docker Desktop com K8s)
+- Node.js and npm installed
+- The [`dev-env-api`](https://github.com/sahev/dev-env-api) API running locally
+- **Docker** installed and running
+- **Kubernetes** configured (e.g., Docker Desktop with K8s enabled)
 
 ---
 
-## 🧪 Clonando e rodando o projeto
+## 🧪 Cloning and Running the Project
 
-### 1. Clone este repositório
+### 1. Clone this repository
 
 ```bash
 git clone https://github.com/sahev/dev-env-web.git
@@ -48,4 +48,5 @@ cd dev-env-web
 
 npm i
 npm run dev
+
 ```
